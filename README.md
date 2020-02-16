@@ -1,1 +1,1 @@
-# nordevcon-2020-slides
+# NOR(DEV):CON 2020 slides
