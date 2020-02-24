@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>Javascript is dead! Long live Javascript!</h2>
+            <h4>An adventure in sans JS web programming</h4>
+        </section>
+        <section>
+            <h1><code>whoami</code></h1>
+            <div style="width: 50%; float: left">
+                <img src="https://magicalcodewit.ch/imgs/pfp.png" alt="" class="plain" style="background: none">
+            </div>
+            <div style="width: 50%; float: left">
+                <ul>
+                    <li> 🧙🏻‍♀️ Magical code witch 🧙🏻‍♀️</li>
+                    <li>🕸️ Runs AS207960 🕸️</li>
+                    <li>🦀 User of rust 🦀</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <section>
+                <h3>📜 A brief history of JS 📜</h3>
+                <ul>
+                    <li class="fragment fade-in-then-semi-out">First appeared in 1995</li>
+                    <li class="fragment fade-in-then-semi-out">Doesn't actually have that much to do with Java</li>
+                    <li class="fragment fade-in-then-semi-out">Supported by every major browser</li>
+                    <li class="fragment fade-in-then-semi-out">A bit on the slow side</li>
+                    <li class="fragment fade-in-then-semi-out">New features prove problematic</li>
+                </ul>
+
+                <aside class="notes">
+                    Start of 1995: netscape wanted to add interactivity to their browser
+                    Collaborated with Sun to embed Java and Brendan Eich to embed Scheme (a dialect of Lisp)
+                    Decided that Eich should devise an entirely new programming language.
+                    Released in September as LiveScript, renamed to JavaScript 3 months later.
+
+                    Supported in every major browser due to Microsoft copying the work of Netscape in Internet
+                    Explorer
+
+                    Interpreter driven, so could be quicker.
+
+                    As new features are released a need for polyfills arises due to the need to support olde
+                    browsers.
+                </aside>
+            </section>
+            <section>
+                <h3>😕</h3>
+                <img src="/imgs/js-types.png" alt="" style="height: 50vh;">
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>🆕 WASM 🆕</h2>
+                <h3>The new kid on the block</h3>
+            </section>
+            <section>
+                <h2>But why?</h2>
+                <ul>
+                    <li class="fragment fade-in-then-semi-out">Native or near native speed</li>
+                    <li class="fragment fade-in-then-semi-out">Support for any non garbage collected language (gc
+                        support incoming)
+                    </li>
+                    <li class="fragment fade-in-then-semi-out">OS level threading</li>
+                    <li class="fragment fade-in-then-semi-out">Still sandboxed, so can't be too naughty</li>
+                    <li class="fragment fade-in-then-semi-out">JavaScript is sticking around</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Support?</h3>
+                <img src="/imgs/wasm-caniuse.png" alt="">
+
+                <aside class="notes">
+                    Development started in 2015.
+                    MVP in March 2017.
+                    Support in the 4 major browsers in November.
+                    asm.js, which was a earlier attempt can be comiled from WASM
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Oh great so I can just write my websites in this new ✨ WebAssembly ✨ thing</h3>
+                <h2 class="fragment fade-in">🙃 Well, eh not quite 🙃</h2>
+            </section>
+            <section>
+                <h3>Issue number 1</h3>
+                <h2 class="fragment fade-in">Instantiation</h2>
+            </section>
+            <section>
+                <h3>Issue number 2</h3>
+                <h2 class="fragment fade-in">Data types</h2>
+            </section>
+            <section>
+                <h3>Issue number 3</h3>
+                <h2 class="fragment fade-in">The DOM</h2>
+            </section>
+            <section>
+                <h3>Issue number 4</h3>
+                <h2 class="fragment fade-in">Memory management</h2>
+            </section>
+            <section>
+                <h3>Issue number 5</h3>
+				<div class="fragment fade-in">
+					<h2>Its friggin assembly</h2>
+					<pre><code>
+(module
+  (func $i (import "imports" "imported_func") (param i32))
+  (func (export "exported_func")
+    i32.const 42
+    call $i
+  )
+)
+					</code></pre>
+				</div>
+            </section>
+        </section>
+        <section>
+            <h3>Ok so how do I actually use this thing?</h3>
+            <h3 class="fragment fade-in"><code>wasm-pack</code>, <code>wasm-bindgen</code>, <code>web-sys</code></h3>
+        </section>
+        <section>
+            <h1>wasm-pack</h1>
+            <img src="/imgs/wasm-pack.gif" alt="">
+        </section>
+        <section>
+            <h2>Any questions?</h2>
+            <ul>
+                <li>Email: <b>q@magicalcodewit.ch</b></li>
+                <li>Website: <b>https://magicalcodewit.ch</b></li>
+                <li>Twitter: <b>@TheEnbyperor</b></li>
+                <li>GitHub: <b>TheEnbyperor</b> (GitHub sponsors available)</li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="js/reveal.js"></script>
+
+<script>
+    Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        controls: false,
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/highlight/highlight.js'},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+</script>
+</body>
+</html>
